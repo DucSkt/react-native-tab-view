@@ -25,18 +25,6 @@ export default class SceneView<T extends Route> extends React.Component<
   Props<T>,
   State
 > {
-  static getDerivedStateFromProps(props: Props<Route>, state: State) {
-    if (
-      state.loading &&
-      Math.abs(props.navigationState.index - props.index) <=
-        props.lazyPreloadDistance
-    ) {
-      // Always render the route when it becomes focused
-      return { loading: false };
-    }
-
-    return null;
-  }
 
   state = {
     loading:
